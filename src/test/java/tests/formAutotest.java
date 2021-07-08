@@ -1,7 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -11,10 +10,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class formAutotest {
+public class FormAutotest {
 
     @BeforeAll
     static void setup() {
+
         Configuration.startMaximized = true;
     }
 
@@ -57,8 +57,7 @@ public class formAutotest {
         $("#currentAddress").setValue(currentAddress);
         $("#react-select-3-input").setValue(state).pressEnter();
         $("#react-select-4-input").setValue(city).pressEnter();
-        $("#submit").click();
-
+        $("#submit").scrollTo().click();
 
         //check if the filled in data is correct
         $(".table-responsive").shouldHave(
